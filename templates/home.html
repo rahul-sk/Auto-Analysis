@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>first</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+    *{
+    margin:0px;
+    padding:0px;
+    }
+    #container ul{
+    list-style:none;
+    }
+    #container ul li{
+    background-color:#D61F1F;
+    width:339px;
+    border:1px solid white;
+    height:50px;
+    line-height:50px;
+    text-align:center;
+    float:left;
+    color:white;
+    font-size:18px;
+    }
+    #container ul li:hover{
+    background-color:green;
+    }
+     #container ul ul{
+     display:none;
+     }
+     #container ul li:hover > ul{
+     display:block;}
+     #container ul ul ul{
+     margin-left:150px;
+     top:51px;
+     position:absolute;}
+     button{
+     font-size:15px;
+     padding:10px;
+     border-radius:0;
+     margin:20px;
+     }
+     select{
+     font-size:15px;
+     padding:5px;
+     border-radius:0;
+     margin:5px;}
+    </style>
+</head>
+<body bgcolor="#5E5D48">
+{% block content %}
+    <div id ="container">
+        <ul>
+            <li>Home</li>
+            <li> <a href="https://www.udemy.com/course/machinelearning/">Learn</a></li>
+            <li>Details
+            <ul>
+                <li>Account</li>
+                <li>Profile</li>
+                <li>share</li>
+            </ul>
+            </li>
+            <li><a href="https://machinelearningmastery.com/machine-learning-algorithms-from-scratch/">Algorithms</a></li>
+        </ul>
+    </div><br><br><br><br><br>
+<center>  
+<form action="lo" name="upload" method="POST">
+    {% csrf_token %}
+    <h1>Greeting From RRRM Groups</h1>
+    <br><br><br>
+    <h3>Select a file..!</h3><br><input type="file" id="file" name="files" accept=".csv" /><br><br><br>
+    <h3>What you want to do with these dataset?</h3><br><p><a href="https://en.wikipedia.org/wiki/Data_set">Know what is dataset?</a></p>
+        <select name="downloads" id="downloadd" >
+        <option value="" name="one" disabled>select one</option>
+        <option value="Regression" name="two">Regression......</option>
+         <option  value="Classification" name="three">Classification.....</option>
+        <option  value="Clustering" name="four">Clustering.....</option>
+    </select>
+    <br><br><br>
+  <button name="get">Get Results</button>
+  <input type="reset" value="Reset" name="reset"/>
+</form>
+</center>
+{% endblock %}
+</body>
+</html>
